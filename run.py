@@ -4,7 +4,11 @@
 
 def game_intro():
 
-
+    """
+    Introducing the user to the game, get name, choice of difficulty level, 
+    and display rules if asked.
+    """
+    
     print("Welcome to Word Wander!\n")
     print("Only one way forward: guess the word chosen by the elites.\n")
 
@@ -33,7 +37,10 @@ def game_intro():
 
 
 def game_rules():
-
+    """
+    Rules of the game thag will appear when called for.
+    """
+    
     print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the difficulty level you choose.")
     print(". You make a guess by typing in a word of the correct length and pressing enter.")
     print(". All guesses must be valid words in the game's dictionary.")
@@ -47,7 +54,7 @@ def game_rules():
 
 def validate_entry(type, input):
     """ 
-    Raises ValueError if string not as expected input. 
+    Raises ValueError if string value does not match the given choices. 
     """
 
     try: 
