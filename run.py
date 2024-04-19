@@ -1,4 +1,5 @@
 import random 
+from termcolor import colored
 
 def game_intro():
 
@@ -14,7 +15,6 @@ def game_intro():
 
     while True:
         open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n): ")
-        print(type(open_rules))
 
         if validate_entry("rules", open_rules):
             break
@@ -32,6 +32,8 @@ def game_intro():
         difficulty_lvl = input("Which of those are you? (1/2): ")
         if validate_entry("difficulty", difficulty_lvl):
             break
+        
+    return difficulty_lvl, player_name 
 
 
 def game_rules():
@@ -82,6 +84,74 @@ def read_random_word():
     with open("wordlibrary.txt") as f:
         word_array = f.read().splitlines()
         return random.choice(word_array)
+    
+def validate_word(word):
+    """ Checks if the word entered by the player is made of 5 letters"""
+    try: 
 
-# game_intro()
-read_random_word()
+        if len(word) != 5:
+            raise ValueError (
+                "Word should consist of 5 letters"
+            )
+
+    except ValueError as e:
+        
+        print(f"Invalid data: {e}, please try again. \n") 
+        return False
+
+    return True
+    
+def game_play(word, level):
+    """
+    Function for game play:
+    allows the user to start guessing the word withing an amount of attempts
+    prints the guessed word with colored letters to signal correct letters and their positions
+    Game ends when when word is guessed or number of allowed attempts is exceeded
+    """
+    
+    #For determining the number of attempts based on the difficuty level chosen
+    i = 0
+    if level == "1":
+        i = 7
+    else:
+        i = 5
+       
+    print(word)
+    print(i) 
+    for trial in range(1, i):
+        while True:
+            guess = input().lower() # So there won't be issues if the user types with capital letters
+
+            if validate_word(guess):
+                break
+            
+        
+        # print colored letters
+        for j in range(min(len(guess), 5)):
+            if guess[j] == word[j]:
+                print(colored(guess[j], 'green'), end="")
+            elif guess[j] in word:
+                print(colored(guess[j], 'yellow'), end="")
+            else:
+                print(guess[j], end="")
+        print()
+        
+        if guess == word:
+            print("Congratulations! You guessed the word in %i guesses." %trial)
+            break
+        elif trial == i-1:
+            print(f"You didn't guess the word within {i-1} tries, it was '%s'" %word)
+    
+
+def main():
+    data = game_intro()
+    level = data[0]
+    name = data[1]
+    word = read_random_word()
+    game_play(word, level)
+    
+    
+
+
+
+main()
