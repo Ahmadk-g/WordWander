@@ -1,6 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random 
 
 def game_intro():
 
@@ -76,4 +74,14 @@ def validate_entry(type, input):
     
     return True
 
-game_intro()
+def read_random_word():
+    """
+    Reads the txt file containg all the words for the game. 
+    Makes a list of them and randomly chooses a word.
+    """
+    with open("wordlibrary.txt") as f:
+        word_array = f.read().splitlines()
+        return random.choice(word_array)
+
+# game_intro()
+read_random_word()
