@@ -145,7 +145,10 @@ def game_play(word, level):
         i = 5
        
     print("Guess away creature\n")
-    print(word) 
+    print(word + "\n") 
+    
+    for line in range(1, i):
+        print("-----")
     for trial in range(1, i):
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
