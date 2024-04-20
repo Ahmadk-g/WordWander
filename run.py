@@ -18,7 +18,7 @@ def game_intro():
             exit()
 
     while True:
-        open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n): ")
+        open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n):\n")
         
         if open_rules.lower() == 'q':
             print("Goodbye!")
@@ -37,7 +37,7 @@ def game_intro():
     print("2. (Difficult) Infinite Intellect - 4 trials")
     
     while True:
-        difficulty_lvl = input("Which of those are you? (1/2): ")
+        difficulty_lvl = input("Which of those are you? (1/2):\n")
         
         if difficulty_lvl.lower() == 'q':
             print("Goodbye!")
