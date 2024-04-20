@@ -147,18 +147,21 @@ def game_play(word, level):
     i = 0
     if level == "1":
         i = 7
+        guess_list=["-----","-----","-----","-----","-----","-----"]
     else:
         i = 5
+        guess_list=["-----","-----","-----","-----"]
      
     clear_terminal() 
        
     print("Guess away creature\n")
     print(word + "\n") 
     
-    for line in range(1, i):
-        print("-----")
+    for line in range(len(guess_list)):
+        print(guess_list[line])
         
     for trial in range(1, i):
+        
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
             
@@ -170,23 +173,33 @@ def game_play(word, level):
                 if check_word_in_library(guess):
                     break
                 
-         
         
-        sys.stdout.write('\x1b[1A')
-        sys.stdout.write('\x1b[2K')   
+        # sys.stdout.write('\x1b[1A')
+        # sys.stdout.write('\x1b[2K')   
         
-        
+        guess_str = ""
         
         # print colored letters
         for j in range(min(len(guess), 5)):
             if guess[j] == word[j]:
-                print(colored(guess[j], 'green'), end="")
+                # print(colored(guess[j], 'green'), end="")
+                guess_str += colored(guess[j], 'green')
             # elif guess[j] in word:
             elif guess[j] in word and word.count(guess[j]) == guess.count(guess[j]):
-                print(colored(guess[j], 'yellow'), end="")
+                # print(colored(guess[j], 'yellow'), end="")
+                guess_str += colored(guess[j], 'yellow')
             else:
-                print(guess[j], end="")
-        print()
+                # print(guess[j], end="")
+                guess_str+= guess[j]
+        # print()
+        guess_list[trial-1]=guess_str
+        
+        clear_terminal()
+        print("Guess away creature!\n")
+        print(word + "\n")
+        
+        for line in range(len(guess_list)):
+            print(guess_list[line])
         
         if guess == word:
             print("Congratulations! You guessed the word in %i guesses." %trial)
