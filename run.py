@@ -25,8 +25,8 @@ def game_intro():
     print(f"\nYou shall now be tested, {player_name}")
 
     print("Choose your difficulty level:\n")
-    print("1. (Easy) Simple Mortal")
-    print("2. (Difficult) Infinite Intellect")
+    print("1. (Easy) Simple Mortal - 6 trials")
+    print("2. (Difficult) Infinite Intellect - 4 trials")
     
     while True:
         difficulty_lvl = input("Which of those are you? (1/2): ")
@@ -42,7 +42,7 @@ def game_rules():
     """
     
     print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the difficulty level you choose.")
-    print(". You make a guess by typing in a word of the correct length and pressing enter.")
+    print(". You make a guess by typing in a word of 5 letters and pressing enter.")
     print(". All guesses must be valid words in the game's dictionary.")
     print(". After each guess, a feedback is provided on the letters guessed")
     print("\t- Correct and in the right position: The letter is highlighted in green")
@@ -88,7 +88,10 @@ def read_random_word():
 def validate_word(word):
     """ Checks if the word entered by the player is made of 5 letters"""
     try: 
-
+        if word.isalpha() == False:
+            raise ValueError (
+                "All characters of the word must be alphabet letters"
+            )
         if len(word) != 5:
             raise ValueError (
                 "Word should consist of 5 letters"
@@ -116,8 +119,8 @@ def game_play(word, level):
     else:
         i = 5
        
-    print(word)
-    print(i) 
+    print("Guess away creature")
+    # print(i) 
     for trial in range(1, i):
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
