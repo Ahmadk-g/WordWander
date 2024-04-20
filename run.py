@@ -103,6 +103,18 @@ def validate_word(word):
         return False
 
     return True
+
+def check_word_in_library(word):
+    """
+    Check if the guessed word is in the word library.
+    """
+    with open("wordlibrary.txt") as f:
+        word_library = f.read().splitlines()
+        if word in word_library:
+            return True
+        else:
+            print("Word not found in the library. Try another word.")
+            return False
     
 def game_play(word, level):
     """
@@ -119,14 +131,17 @@ def game_play(word, level):
     else:
         i = 5
        
-    print("Guess away creature")
-    # print(i) 
+    print("Guess away creature\n")
+    print(word) 
     for trial in range(1, i):
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
 
             if validate_word(guess):
-                break
+                if check_word_in_library(guess):
+                    break
+            
+            
             
         
         # print colored letters
