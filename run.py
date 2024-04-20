@@ -12,9 +12,17 @@ def game_intro():
     print("Only one way forward: guess the word chosen by the elites.\n")
 
     player_name = input("By what name do you go, human?\n")
+    
+    if player_name.lower() == 'q':
+            print("Goodbye!")
+            exit()
 
     while True:
         open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n): ")
+        
+        if open_rules.lower() == 'q':
+            print("Goodbye!")
+            exit()
 
         if validate_entry("rules", open_rules):
             break
@@ -30,6 +38,11 @@ def game_intro():
     
     while True:
         difficulty_lvl = input("Which of those are you? (1/2): ")
+        
+        if difficulty_lvl.lower() == 'q':
+            print("Goodbye!")
+            exit()
+        
         if validate_entry("difficulty", difficulty_lvl):
             break
         
@@ -136,6 +149,10 @@ def game_play(word, level):
     for trial in range(1, i):
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
+            
+            if guess == 'q':
+                print("Goodbye!")
+                exit()
 
             if validate_word(guess):
                 if check_word_in_library(guess):
