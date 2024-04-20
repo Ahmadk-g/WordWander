@@ -1,5 +1,7 @@
 import random 
 from termcolor import colored
+import sys
+
 
 def game_intro():
 
@@ -149,6 +151,7 @@ def game_play(word, level):
     
     for line in range(1, i):
         print("-----")
+        
     for trial in range(1, i):
         while True:
             guess = input().lower() # So there won't be issues if the user types with capital letters
@@ -160,9 +163,12 @@ def game_play(word, level):
             if validate_word(guess):
                 if check_word_in_library(guess):
                     break
-            
-            
-            
+         
+        
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')   
+        
+        
         
         # print colored letters
         for j in range(min(len(guess), 5)):
