@@ -165,7 +165,8 @@ def game_play(word, level):
         for j in range(min(len(guess), 5)):
             if guess[j] == word[j]:
                 print(colored(guess[j], 'green'), end="")
-            elif guess[j] in word:
+            # elif guess[j] in word:
+            elif guess[j] in word and word.count(guess[j]) == guess.count(guess[j]):
                 print(colored(guess[j], 'yellow'), end="")
             else:
                 print(guess[j], end="")
