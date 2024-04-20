@@ -1,7 +1,7 @@
 import random 
 from termcolor import colored
 import sys
-
+import os
 
 def game_intro():
 
@@ -130,6 +130,10 @@ def check_word_in_library(word):
         else:
             print("Word not found in the library. Try another word.")
             return False
+        
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     
 def game_play(word, level):
     """
@@ -145,6 +149,8 @@ def game_play(word, level):
         i = 7
     else:
         i = 5
+     
+    clear_terminal() 
        
     print("Guess away creature\n")
     print(word + "\n") 
@@ -163,6 +169,7 @@ def game_play(word, level):
             if validate_word(guess):
                 if check_word_in_library(guess):
                     break
+                
          
         
         sys.stdout.write('\x1b[1A')
