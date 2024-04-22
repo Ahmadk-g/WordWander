@@ -32,11 +32,17 @@ def game_intro():
     if open_rules == "n":
         game_rules()
 
-    print(f"\nYou shall now be tested, {player_name}")
+        
+    return player_name 
+
+def difficulty_level(player_name):
+    
+    
 
     print("Choose your difficulty level:\n")
     print("1. (Easy) Simple Mortal - 6 trials")
     print("2. (Difficult) Infinite Intellect - 4 trials")
+    print()
     
     while True:
         difficulty_lvl = input("Which of those are you? (1/2):\n")
@@ -48,8 +54,7 @@ def game_intro():
         if validate_entry("difficulty", difficulty_lvl):
             break
         
-    return difficulty_lvl, player_name 
-
+    print(f"\nYou shall now be tested, {player_name}")
 
 def game_rules():
     """
@@ -156,6 +161,7 @@ def game_play(word, level):
     else:
         i = 5
         guess_list=["-----","-----","-----","-----"]
+            
      
     clear_terminal() 
        
@@ -214,6 +220,7 @@ def game_play(word, level):
             print(f"You didn't guess the word within {i-1} tries, it was '%s'" %word)
     
     if done:
+        
         while True:
             
            end_game = input ("press C to play anther game or q to quit")
@@ -232,6 +239,7 @@ def game_play(word, level):
 
 def main():
     data = game_intro()
+    difficulty = difficulty_level(data)
     level = data[0]
     name = data[1]
     word = read_random_word()
