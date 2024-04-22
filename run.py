@@ -84,6 +84,11 @@ def validate_entry(type, input):
                 raise ValueError (
                     "Input value should be 1/2"
                 )
+        elif type == "done":
+            if input.lower() != "c":
+                raise ValueError (
+                    "Input value should be c/q"
+                )
     
     except ValueError as e:
         print(f"Invalid data: {e}, please try again. \n") 
@@ -203,10 +208,27 @@ def game_play(word, level):
         
         if guess == word:
             print("Congratulations! You guessed the word in %i guesses." %trial)
+            done = True
             break
         elif trial == i-1:
             print(f"You didn't guess the word within {i-1} tries, it was '%s'" %word)
     
+    if done:
+        while True:
+            
+           end_game = input ("press C to play anther game or q to quit")
+           
+           if end_game.lower() == 'q':
+               print("Goodbye!")
+               exit()
+               
+           if validate_entry("done", end_game):
+               break
+        
+        if end_game.lower() == "c":
+            main()
+           
+
 
 def main():
     data = game_intro()
@@ -214,6 +236,7 @@ def main():
     name = data[1]
     word = read_random_word()
     game_play(word, level)
+    
     
     
 
