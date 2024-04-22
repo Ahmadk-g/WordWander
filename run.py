@@ -10,30 +10,65 @@ def game_intro():
     and display rules if asked.
     """
     
+    print("\n\tWORD WANDER")
+    print("\t___a wordle game___\n")
+    
+    print("1. Start playing")
+    print("2. Check out the Rules")
+    print("\n'q' to Quit\n")
+    
+    
+    
+    while True:
+        menu_choice = input("For what do you wish?\n")
+        
+        if menu_choice.lower() == 'q':
+            print("Goodbye!")
+            exit()
+
+        if validate_entry("choice", menu_choice):
+            break
+    
+    
+    if menu_choice == "2":
+        game_rules()
+        
+    elif menu_choice == "1":
+       name = enter_name()
+       level = difficulty_level(name)
+        
+        
+
+    # while True:
+    #     open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n):\n")
+        
+    #     if open_rules.lower() == 'q':
+    #         print("Goodbye!")
+    #         exit()
+
+    #     if validate_entry("rules", open_rules):
+    #         break
+
+    # if open_rules == "n":
+    #     game_rules()
+
+    return name, level
+        
+def enter_name():
+    
+    clear_terminal()
     print("Welcome to Word Wander!\n")
     print("Only one way forward: guess the word chosen by the elites.\n")
-
+    
+    
     player_name = input("By what name do you go, human?\n")
     
     if player_name.lower() == 'q':
             print("Goodbye!")
             exit()
-
-    while True:
-        open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n):\n")
-        
-        if open_rules.lower() == 'q':
-            print("Goodbye!")
-            exit()
-
-        if validate_entry("rules", open_rules):
-            break
-
-    if open_rules == "n":
-        game_rules()
-
-        
-    return player_name 
+    
+    return player_name
+    
 
 def difficulty_level(player_name):
     
@@ -55,11 +90,16 @@ def difficulty_level(player_name):
             break
         
     print(f"\nYou shall now be tested, {player_name}")
+    
+    return difficulty_lvl
 
 def game_rules():
     """
     Rules of the game thag will appear when called for.
     """
+    clear_terminal()
+    
+    print("\tWORD WANDER\n")
     
     print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the difficulty level you choose.")
     print(". You make a guess by typing in a word of 5 letters and pressing enter.")
@@ -69,7 +109,9 @@ def game_rules():
     print("\t- Correct and in the wrong position: The letter is highlighted in yellow")
     print("\t- Incorrect: The letter is not highlighted and isn't part of the secret word.")
     print(". You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
-    print(". Once the game is over, you can start a new round and guess a different secret word.")
+    print(". Once the game is over, you can start a new round and guess a different secret word.\n")
+    
+    rule_page_button = input("")
 
 
 def validate_entry(type, input):
@@ -79,7 +121,13 @@ def validate_entry(type, input):
 
     try: 
 
-        if type == "rules":
+        if type == "choice":
+            if input != "1" and input != "2":
+                raise ValueError (
+                    "Input value should be 1/2... or 'q' to quit"
+                )
+        
+        elif type == "rules":
             if input != "y" and input != "n":
                 raise ValueError (
                     "Input value should be y/n"
@@ -164,7 +212,8 @@ def game_play(word, level):
             
      
     clear_terminal() 
-       
+      
+      
     print("Guess away creature\n")
     print(word + "\n") 
     
@@ -218,7 +267,8 @@ def game_play(word, level):
             break
         elif trial == i-1:
             print(f"You didn't guess the word within {i-1} tries, it was '%s'" %word)
-    
+            done = True
+            break    
     if done:
         
         while True:
@@ -239,11 +289,15 @@ def game_play(word, level):
 
 def main():
     data = game_intro()
-    difficulty = difficulty_level(data)
-    level = data[0]
-    name = data[1]
+    name = data[0]
+    level = data[1]
+    
     word = read_random_word()
     game_play(word, level)
+    
+   
+
+    
     
     
     
