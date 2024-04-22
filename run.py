@@ -261,6 +261,7 @@ def game_play(word, level):
         guess_list[trial-1]=guess_str
         
         clear_terminal()
+        print("Press 'q' to quit\n\n")
         print("Guess away creature!\n")
         print(word + "\n")
         
