@@ -9,7 +9,7 @@ def game_intro():
     Introducing the user to the game, get name, choice of difficulty level, 
     and display rules if asked.
     """
-    
+    clear_terminal()
     print("\n\tWORD WANDER")
     print("\t___a wordle game___\n")
     
@@ -36,27 +36,15 @@ def game_intro():
     elif menu_choice == "1":
        name = enter_name()
        level = difficulty_level(name)
-        
-        
-
-    # while True:
-    #     open_rules = input(f"Now, {player_name}, Do you understand the rules? (y/n):\n")
-        
-    #     if open_rules.lower() == 'q':
-    #         print("Goodbye!")
-    #         exit()
-
-    #     if validate_entry("rules", open_rules):
-    #         break
-
-    # if open_rules == "n":
-    #     game_rules()
 
     return name, level
         
+        
 def enter_name():
+    """To allow the user to enter their name and return the value"""
     
     clear_terminal()
+    print("Press 'q' to quit\n\n")
     print("Welcome to Word Wander!\n")
     print("Only one way forward: guess the word chosen by the elites.\n")
     
@@ -71,9 +59,9 @@ def enter_name():
     
 
 def difficulty_level(player_name):
-    
-    
-
+    """To allow the user to choose the difficulty of the game and return the value"""
+    clear_terminal()
+    print("Press 'q' to quit\n\n")
     print("Choose your difficulty level:\n")
     print("1. (Easy) Simple Mortal - 6 trials")
     print("2. (Difficult) Infinite Intellect - 4 trials")
@@ -98,7 +86,7 @@ def game_rules():
     Rules of the game thag will appear when called for.
     """
     clear_terminal()
-    
+    print("Press 'q' to quit\n\n")
     print("\tWORD WANDER\n")
     
     print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the difficulty level you choose.")
@@ -111,7 +99,25 @@ def game_rules():
     print(". You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
     print(". Once the game is over, you can start a new round and guess a different secret word.\n")
     
-    rule_page_button = input("")
+    
+    while True:
+        rule_page_button = input("Press 'b' to go back to game menu and 'c' to start.\n")
+        
+        if rule_page_button.lower() == "q":
+            print("Goodbye!")
+            exit()
+            
+        if validate_entry("rules", rule_page_button):
+                break
+            
+    if rule_page_button.lower() == "b":
+        main()
+    elif rule_page_button.lower() == "c":
+        start_game_from_rules()
+    
+    
+        
+    
 
 
 def validate_entry(type, input):
@@ -128,9 +134,9 @@ def validate_entry(type, input):
                 )
         
         elif type == "rules":
-            if input != "y" and input != "n":
+            if input.lower() != "b" and input.lower() != "c":
                 raise ValueError (
-                    "Input value should be y/n"
+                    "Input value should be b/q"
                 )
         elif type == "difficulty":
             if input != "1" and input != "2":
@@ -138,9 +144,9 @@ def validate_entry(type, input):
                     "Input value should be 1/2"
                 )
         elif type == "done":
-            if input.lower() != "c":
+            if input.lower() != "c" and input.lower() != "b":
                 raise ValueError (
-                    "Input value should be c/q"
+                    "Input value should be c/b"
                 )
     
     except ValueError as e:
@@ -212,7 +218,7 @@ def game_play(word, level):
             
      
     clear_terminal() 
-      
+    print("Press 'q' to quit\n\n")
       
     print("Guess away creature\n")
     print(word + "\n") 
@@ -273,7 +279,7 @@ def game_play(word, level):
         
         while True:
             
-           end_game = input ("press C to play anther game or q to quit")
+           end_game = input ("press 'c' to play another game or 'b' to go back to game menu")
            
            if end_game.lower() == 'q':
                print("Goodbye!")
@@ -283,19 +289,26 @@ def game_play(word, level):
                break
         
         if end_game.lower() == "c":
+            start_new_game(level)
+        else:
             main()
            
-
+def start_new_game(level):
+    word = read_random_word()
+    game_play(word, level)
 
 def main():
     data = game_intro()
     name = data[0]
-    level = data[1]
+    level = data[1] 
     
-    word = read_random_word()
-    game_play(word, level)
+    start_new_game(level)
     
-   
+def start_game_from_rules():
+    name = enter_name()
+    level = difficulty_level(name) 
+    
+    start_new_game(level)
 
     
     
