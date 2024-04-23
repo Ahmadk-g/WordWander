@@ -278,7 +278,7 @@ def game_play(word, level):
         clear_terminal()
         print("Press 'q' to quit\n\n")
         print("Guess away creature!\n")
-        print(word + "\n")
+        # print(word + "\n")
         
         for line in range(len(guess_list)):
             print(guess_list[line])
