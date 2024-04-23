@@ -3,6 +3,7 @@ from termcolor import colored
 import sys
 import os
 import pyfiglet
+import fontstyle
 
 def title_ascii():
     """
@@ -23,8 +24,9 @@ def game_intro():
     """
     clear_terminal()
     # print("\n\tWORD WANDER")
+    # print("\t___a wordle game___\n")
     title_ascii()
-    print("\t___a wordle game___\n")
+    print(fontstyle.apply("___a wordle game___\n\n".rjust(55),'bold/blink/yellow/lightpurple_BG/'))
     
     print("1. Start playing")
     print("2. Check out the Rules")
