@@ -7,11 +7,11 @@ import fontstyle
 
 def title_ascii():
     """
-    ascii art for game title
+    ascii art for game title using pyfiglet module
     """
     title_text_ascii = "Word Wander"
     word_wander_ascci_art = pyfiglet.figlet_format(
-        title_text_ascii, font='epic', justify='center'
+        title_text_ascii, font='small', justify='center'
     )
     print(word_wander_ascci_art)
 
@@ -26,7 +26,7 @@ def game_intro():
     # print("\n\tWORD WANDER")
     # print("\t___a wordle game___\n")
     title_ascii()
-    print(fontstyle.apply("___a wordle game___\n\n".rjust(55),'bold/blink/yellow/lightpurple_BG/'))
+    print(fontstyle.apply("___a wordle game___\n\n". rjust(50),'bold/blink/yellow'))
     
     print("1. Start playing")
     print("2. Check out the Rules")
@@ -35,7 +35,7 @@ def game_intro():
     
     
     while True:
-        menu_choice = input("For what do you wish?\n")
+        menu_choice = input("For what do you wish? (1/2)\n")
         
         if menu_choice.lower() == 'q':
             print("Goodbye!")
@@ -104,15 +104,15 @@ def game_rules():
     print("Press 'q' to quit\n\n")
     print("\tWORD WANDER\n")
     
-    print("\n\t. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the chosen difficulty level.")
-    print("\t. To make a guess, type in a word of 5 letters and press enter.")
-    print("\t. Every guess must be a valid 5-letter word from the game's dictionary.")
-    print("\t. After each guess, a feedback is provided on the letters guessed:")
-    print("\t\t- Correct and in the right position: The letter is highlighted in " + colored("green", 'green'))
-    print("\t\t- Correct and in the wrong position: The letter is highlighted in " + colored("yellow", 'yellow'))
-    print("\t\t- Incorrect: The letter is not highlighted and isn't part of the secret word.")
-    print("\t. You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
-    print("\t. Once the game is over, you can start a new round and guess a different secret word.\n")
+    print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the chosen difficulty level.")
+    print(". To make a guess, type in a word of 5 letters and press enter.")
+    print(". Every guess must be a valid 5-letter word from the game's dictionary.")
+    print(". After each guess, a feedback is provided on the letters guessed:")
+    print("\t- Correct and in the right position: The letter is highlighted in " + colored("green", 'green') + ".")
+    print("\t- Correct and in the wrong position: The letter is highlighted in " + colored("yellow", 'yellow') + ".")
+    print("\t- Incorrect: The letter is not highlighted and isn't part of the secret word.")
+    print(". You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
+    print(". Once the game is over, you can start a new round and guess a different secret word.\n")
     
     
     while True:
@@ -236,7 +236,7 @@ def game_play(word, level):
     print("Press 'q' to quit\n\n")
       
     print("Guess away creature\n")
-    print(word + "\n") 
+    # print(word + "\n") 
     
     for line in range(len(guess_list)):
         print(guess_list[line])
