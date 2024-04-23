@@ -2,6 +2,18 @@ import random
 from termcolor import colored
 import sys
 import os
+import pyfiglet
+
+def title_ascii():
+    """
+    ascii art for game title
+    """
+    title_text_ascii = "Word Wander"
+    word_wander_ascci_art = pyfiglet.figlet_format(
+        title_text_ascii, font='epic', justify='center'
+    )
+    print(word_wander_ascci_art)
+
 
 def game_intro():
 
@@ -10,7 +22,8 @@ def game_intro():
     and display rules if asked.
     """
     clear_terminal()
-    print("\n\tWORD WANDER")
+    # print("\n\tWORD WANDER")
+    title_ascii()
     print("\t___a wordle game___\n")
     
     print("1. Start playing")
@@ -89,15 +102,15 @@ def game_rules():
     print("Press 'q' to quit\n\n")
     print("\tWORD WANDER\n")
     
-    print("\n. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the difficulty level you choose.")
-    print(". You make a guess by typing in a word of 5 letters and pressing enter.")
-    print(". All guesses must be valid words in the game's dictionary.")
-    print(". After each guess, a feedback is provided on the letters guessed")
-    print("\t- Correct and in the right position: The letter is highlighted in green")
-    print("\t- Correct and in the wrong position: The letter is highlighted in yellow")
-    print("\t- Incorrect: The letter is not highlighted and isn't part of the secret word.")
-    print(". You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
-    print(". Once the game is over, you can start a new round and guess a different secret word.\n")
+    print("\n\t. The goal is to guess the secret word correctly within 4 or 6 attempts, depending on the chosen difficulty level.")
+    print("\t. To make a guess, type in a word of 5 letters and press enter.")
+    print("\t. Every guess must be a valid 5-letter word from the game's dictionary.")
+    print("\t. After each guess, a feedback is provided on the letters guessed:")
+    print("\t\t- Correct and in the right position: The letter is highlighted in " + colored("green", 'green'))
+    print("\t\t- Correct and in the wrong position: The letter is highlighted in " + colored("yellow", 'yellow'))
+    print("\t\t- Incorrect: The letter is not highlighted and isn't part of the secret word.")
+    print("\t. You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.")
+    print("\t. Once the game is over, you can start a new round and guess a different secret word.\n")
     
     
     while True:
