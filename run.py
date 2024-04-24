@@ -24,8 +24,7 @@ def game_intro():
     and display rules if asked.
     """
     clear_terminal()
-    # print("\n\tWORD WANDER")
-    # print("\t___a wordle game___\n")
+
     title_ascii()
     print(fontstyle.apply("___a wordle game___\n\n". rjust(50),
                           'bold/blink/yellow'))
