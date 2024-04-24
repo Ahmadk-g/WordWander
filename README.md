@@ -1,32 +1,39 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Word Wander
 
-Welcome,
+![Word Wanter title](/images/game-title.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Word Wander is a Python-based word guessing game inspired by the famous Wordle game. The game challenges players to guess a secret 5-letter word within a limited number of attempts. Players receive feedback after each guess to guide them towards the correct answer. Can you find the secret word and emerge as the ultimate Word Wanderer?
 
-## Reminders
+The live link can be found here - [Word Wander](https://word-wander-c212ee79ed5a.herokuapp.com/)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+# Game flowchart:
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+...
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# User Experience (UX)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Word Wander is a simple and engaging word guessing game inspired by the famous Wordle game. Below is an outline of the user experience:
 
-Connect your GitHub repository and deploy as normal.
+1- Game Introduction:
+   Upon launching the game, the user is welcomed and presented with two options: 
+   - starting the game
+   - Displaying the instructions
+2- Guessing the Word:
+  - The user tries to guess the secret 5-letter word.
+  - After each guess, feedback is provided to indicate the correctness of the letters guessed:
+    - Correct and in the right position: Highlighted in green.
+    - Correct but in the wrong position: Highlighted in yellow.
+    - Incorrect: Not highlighted.
+  - The user continues guessing until they find the word or exceed the maximum allowed attempts.
+3- Difficulty Levels:
+   The game offers two difficulty levels, users can choose the difficulty level they prefer:
+   - Easy (6 attempts)
+   - Difficult (4 attempts)
+4- Game Over:
+   - The game ends when the word is guessed correctly or the user exceeds the maximum attempts allowed.
+   - The user has the option to start a new round and guess a different secret word.
+5- Command for Quitting:
+   At any time, the user can quit the game by entering 'q'.
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!

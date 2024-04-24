@@ -127,7 +127,7 @@ def game_rules():
 
     while True:
         rule_page_button = input(colored("Press 'b' to go back to game menu and 'c' to start playing.\t", "blue"))
-        print()
+        print('\n')
 
         if rule_page_button.lower() == "q":
             print("Goodbye!")
