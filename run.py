@@ -104,24 +104,24 @@ def game_rules():
     print("Press 'q' to quit\n\n")
     print("\tWORD WANDER\n")
 
-    print("\n  . The goal is to guess the secret word correctly within "
-          "4 or 6 attempts, depending on the chosen difficulty level.\n")
-    print("  . To make a guess, type in a word of 5 letters and "
+    print("\n. The goal is to guess the secret word correctly within "
+          "4 or 6 attempts,\n  depending on the chosen difficulty level.\n")
+    print(". To make a guess, type in a word of 5 letters and "
           "press enter.\n")
-    print("  . Every guess must be a valid 5-letter word from the game's "
+    print(". Every guess must be a valid 5-letter word from the game's "
           "dictionary.\n")
-    print("  . After each guess, a feedback is provided on the letters "
+    print(". After each guess, a feedback is provided on the letters "
           "guessed:\n")
-    print("\t- Correct and in the right position: The letter is highlighted "
+    print("   - Correct and in the right position: The letter is highlighted "
           "in " + colored("green", 'green') + ".")
-    print("\t- Correct and in the wrong position: The letter is highlighted "
+    print("   - Correct and in the wrong position: The letter is highlighted "
           "in " + colored("yellow", 'yellow') + ".")
-    print("\t- Incorrect: The letter is not highlighted and isn't part "
+    print("   - Incorrect: The letter is not highlighted and isn't part "
           "of the secret word.\n")
-    print("  . You win if you guess the secret word within the allotted "
-          "number of attempts, and lose if you fail to do so.\n")
-    print("  . Once the game is over, you can start a new round and guess "
-          "a different secret word.\n")
+    print(". You win if you guess the secret word within the allotted "
+          "number of attempts,\n  and lose if you fail to do so.\n")
+    print(". Once the game is over, you can start a new round and guess "
+          "a different\n  secret word.\n")
 
     while True:
         rule_page_button = input("Press 'b' to go back to game menu and 'c' to start.\n")
