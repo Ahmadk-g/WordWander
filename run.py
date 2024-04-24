@@ -125,9 +125,9 @@ def game_rules():
     Rules of the game thag will appear when called for.
     """
     clear_terminal()
-    print("Press 'q' to quit\n\n")
-    print(fontstyle.apply("Word Wander\n".rjust(50), 'bold/yellow'))
-    print(fontstyle.apply("Instructions:\n", 'bold/underline'))
+    print("Press 'q' to quit\n")
+    # print(fontstyle.apply("Word Wander\n".rjust(50), 'bold/yellow'))
+    print(fontstyle.apply("Instructions:", 'bold/underline'))
 
     print("\n. The goal is to guess the secret word correctly within "
           "4 or 6 attempts,\n  depending on the chosen difficulty level.\n")
@@ -146,7 +146,7 @@ def game_rules():
     print(". You win if you guess the secret word within the allotted "
           "number of attempts,\n  and lose if you fail to do so.\n")
     print(". Once the game is over, you can start a new round and guess "
-          "a different\n  secret word.\n\n")
+          "a different\n  secret word.\n")
 
     while True:
         rule_page_button = input(colored("Press 'b' to go back to game menu an"
