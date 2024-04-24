@@ -28,13 +28,14 @@ def game_intro():
     title_ascii()
     print(fontstyle.apply("___a wordle game___\n\n". rjust(50),
                           'bold/blink/yellow'))
-
+    
     print("1. Start playing")
     print("2. Check out the Rules")
     print("\n'q' to Quit\n")
 
     while True:
-        menu_choice = input("For what do you wish? (1-2)\t")
+        menu_choice = input(colored("For what do you wish? (1-2)\t", "light_blue"))
+        print()
 
         if menu_choice.lower() == 'q':
             print("Goodbye!")
@@ -82,7 +83,8 @@ def difficulty_level(player_name):
     print()
 
     while True:
-        difficulty_lvl = input("Which of those are you? (1-2):\t")
+        difficulty_lvl = input(colored("Which of those are you? (1-2):\t", "light_blue"))
+        print()
 
         if difficulty_lvl.lower() == 'q':
             print("Goodbye!")
@@ -124,7 +126,8 @@ def game_rules():
           "a different\n  secret word.\n")
 
     while True:
-        rule_page_button = input("Press 'b' to go back to game menu and 'c' to start playing.\t")
+        rule_page_button = input(colored("Press 'b' to go back to game menu and 'c' to start playing.\t", "blue"))
+        print()
 
         if rule_page_button.lower() == "q":
             print("Goodbye!")
@@ -215,7 +218,8 @@ def check_word_in_library(word):
         if word in word_library:
             return True
         else:
-            print(colored("Word not found in the library. Try another word.", "red"))
+            print(colored("Word not found in the library. Try another word.",
+                          "red"))
             return False
 
 
@@ -244,7 +248,7 @@ def game_play(word, level):
     clear_terminal()
     print("Press 'q' to quit\n\n")
 
-    print("Guess away creature\n")
+    print("Guess away creature\n\n")
     print(word + "\n")
 
     for line in range(len(guess_list)):
@@ -254,7 +258,7 @@ def game_play(word, level):
 
         while True:
             # So there won't be issues if the user types with capital letters
-            guess = input().lower()
+            guess = input("\n").lower()
 
             if guess == 'q':
                 print("Goodbye!")
@@ -286,20 +290,20 @@ def game_play(word, level):
 
         clear_terminal()
         print("Press 'q' to quit\n\n")
-        print("Guess away creature!\n")
-        # print(word + "\n")
+        print("Guess away creature!\n\n")
 
         for line in range(len(guess_list)):
             print(guess_list[line])
 
         if guess == word:
-            print("Congratulations! You guessed the word in %i guesses."
-                  % trial)
+            print(colored("\nCongratulations! You guessed the word in "
+                          "%i guesses!!" % trial, "green"))
             done = True
             break
         elif trial == i-1:
-            print(f"You didn't guess the word within {i-1} tries, it was '%s'"
-                  % word)
+            print(colored(f"\nYou didn't guess the word within {i-1} "
+                          "tries, it was '%s'." % word, "grey",
+                          "on_light_red", ["bold"]))
             done = True
             break
 
@@ -307,8 +311,10 @@ def game_play(word, level):
 
         while True:
 
-            end_game = input("\npress 'c' to play another game or 'b' to go back to game menu\t")
-
+            end_game = input(colored("\npress 'c' to play another game or "
+                                     "'b' to go back to game menu.\t",
+                                     "light_blue"))
+            print()
             if end_game.lower() == 'q':
                 print("Goodbye!")
                 exit()
