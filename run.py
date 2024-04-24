@@ -34,7 +34,7 @@ def game_intro():
     print("\n'q' to Quit\n")
 
     while True:
-        menu_choice = input("For what do you wish? (1/2)\n")
+        menu_choice = input("For what do you wish? (1-2)\t")
 
         if menu_choice.lower() == 'q':
             print("Goodbye!")
@@ -82,7 +82,7 @@ def difficulty_level(player_name):
     print()
 
     while True:
-        difficulty_lvl = input("Which of those are you? (1/2):\n")
+        difficulty_lvl = input("Which of those are you? (1-2):\t")
 
         if difficulty_lvl.lower() == 'q':
             print("Goodbye!")
@@ -124,7 +124,7 @@ def game_rules():
           "a different\n  secret word.\n")
 
     while True:
-        rule_page_button = input("Press 'b' to go back to game menu and 'c' to start.\n")
+        rule_page_button = input("Press 'b' to go back to game menu and 'c' to start playing.\t")
 
         if rule_page_button.lower() == "q":
             print("Goodbye!")
@@ -149,27 +149,28 @@ def validate_entry(type, input):
         if type == "choice":
             if input != "1" and input != "2":
                 raise ValueError(
-                    "Input value should be 1/2... or 'q' to quit"
+                    "Input value should be '1' or '2' ... or 'q' to quit"
                 )
 
         elif type == "rules":
             if input.lower() != "b" and input.lower() != "c":
                 raise ValueError(
-                    "Input value should be b/q"
+                    "Input value should be 'b' or 'c'"
                 )
         elif type == "difficulty":
             if input != "1" and input != "2":
                 raise ValueError(
-                    "Input value should be 1/2"
+                    "Input value should be '1' or '2'"
                 )
         elif type == "done":
             if input.lower() != "c" and input.lower() != "b":
                 raise ValueError(
-                    "Input value should be c/b"
+                    "Input value should be 'b' or 'c'"
                 )
 
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again. \n")
+        print(colored(f"\nInvalid data: {e}.", "red")
+              + colored("\nPlease try again. \n", "light_red"))
         return False
 
     return True
@@ -198,8 +199,8 @@ def validate_word(word):
             )
 
     except ValueError as e:
-
-        print(f"Invalid data: {e}, please try again. \n")
+        print(colored(f"\nInvalid data: {e}.", "red")
+              + colored("\nPlease try again. \n", "light_red"))
         return False
 
     return True
@@ -214,7 +215,7 @@ def check_word_in_library(word):
         if word in word_library:
             return True
         else:
-            print("Word not found in the library. Try another word.")
+            print(colored("Word not found in the library. Try another word.", "red"))
             return False
 
 
@@ -306,7 +307,7 @@ def game_play(word, level):
 
         while True:
 
-            end_game = input("press 'c' to play another game or 'b' to go back to game menu")
+            end_game = input("\npress 'c' to play another game or 'b' to go back to game menu\t")
 
             if end_game.lower() == 'q':
                 print("Goodbye!")
