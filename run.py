@@ -76,7 +76,7 @@ def enter_name():
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
+    print(fontstyle.apply("Word Wander\n\n".rjust(30), 'bold/yellow'))
 
     typingeffect('no', "Welcome, brave soul. Many have tried, but none "
                  "have succeeded. Let's see if\nyou're the exception.\n\n")
@@ -97,7 +97,7 @@ def difficulty_level(player_name):
     """
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
+    print(fontstyle.apply("Word Wander\n\n".rjust(30), 'bold/yellow'))
     print("Choose your difficulty level:\n\n")
     print("1. Simple Mortal - 6 trials")
     print("2. Infinite Intellect - 4 trials")
@@ -125,7 +125,7 @@ def game_rules():
     Rules of the game thag will appear when called for.
     """
     clear_terminal()
-    print("Press 'q' to quit\n")
+    # print("Press 'q' to quit\n")
     # print(fontstyle.apply("Word Wander\n".rjust(50), 'bold/yellow'))
     print(fontstyle.apply("Instructions:", 'bold/underline'))
 
@@ -270,7 +270,7 @@ def game_play(word, level):
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
+    print(fontstyle.apply("Word Wander\n\n".rjust(30), 'bold/yellow'))
     print("Guess away creature\n\n")
     print(word + "\n")
 
@@ -310,7 +310,7 @@ def game_play(word, level):
 
         clear_terminal()
         print("Press 'q' to quit\n\n")
-        print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
+        print(fontstyle.apply("Word Wander\n\n".rjust(30), 'bold/yellow'))
         print("Guess away creature!\n\n")
 
         for line in range(len(guess_list)):
