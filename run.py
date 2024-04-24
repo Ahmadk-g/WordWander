@@ -4,6 +4,7 @@ import sys
 import os
 import pyfiglet
 import fontstyle
+import time
 
 
 def title_ascii():
@@ -17,6 +18,20 @@ def title_ascii():
     print(word_wander_ascci_art)
 
 
+def typingeffect(delay, string):
+    """
+    To create typing effect in command line
+    """
+    for i in string:
+        time.sleep(0.03)
+        sys.stdout.write(i)
+        sys.stdout.flush()
+    if delay == 'yes':
+        time.sleep(0.8)  # Delay before printing newline
+        sys.stdout.write('\n')
+        sys.stdout.flush()
+
+
 def game_intro():
 
     """
@@ -28,13 +43,15 @@ def game_intro():
     title_ascii()
     print(fontstyle.apply("___a wordle game___\n\n". rjust(50),
                           'bold/blink/yellow'))
-    
+    print(fontstyle.apply("Welcome to Word Wander!\n", 'bold'))
+    print("Only one way forward: guess the word chosen by the elites.\n\n")
     print("1. Start playing")
     print("2. Check out the Rules")
     print("\n'q' to Quit\n")
 
     while True:
-        menu_choice = input(colored("For what do you wish? (1-2)\t", "light_blue"))
+        menu_choice = input(colored("What is your decision? (1-2)\t",
+                                    "light_blue"))
         print()
 
         if menu_choice.lower() == 'q':
@@ -59,10 +76,13 @@ def enter_name():
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print("Welcome to Word Wander!\n")
-    print("Only one way forward: guess the word chosen by the elites.\n")
+    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
 
-    player_name = input("By what name do you go, human?\n")
+    typingeffect('no', "Welcome, brave soul. Many have tried, but none "
+                 "have succeeded. Let's see if\nyou're the exception.\n\n")
+    typingeffect('no', colored("By what name do you go, human?\n",
+                               'light_blue'))
+    player_name = input()
 
     if player_name.lower() == 'q':
         print("Goodbye!")
@@ -77,13 +97,15 @@ def difficulty_level(player_name):
     """
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print("Choose your difficulty level:\n")
-    print("1. (Easy) Simple Mortal - 6 trials")
-    print("2. (Difficult) Infinite Intellect - 4 trials")
-    print()
+    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
+    print("Choose your difficulty level:\n\n")
+    print("1. Simple Mortal - 6 trials")
+    print("2. Infinite Intellect - 4 trials")
+    print("\n\n")
 
     while True:
-        difficulty_lvl = input(colored("Which of those are you? (1-2):\t", "light_blue"))
+        difficulty_lvl = input(colored("Which of those are you? (1-2):\t",
+                                       "light_blue"))
         print()
 
         if difficulty_lvl.lower() == 'q':
@@ -93,7 +115,7 @@ def difficulty_level(player_name):
         if validate_entry("difficulty", difficulty_lvl):
             break
 
-    print(f"\nYou shall now be tested, {player_name}")
+    typingeffect('yes', f"\nYou shall now be tested, {player_name}.")
 
     return difficulty_lvl
 
@@ -104,7 +126,8 @@ def game_rules():
     """
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print("\tWORD WANDER\n")
+    print(fontstyle.apply("Word Wander\n".rjust(50), 'bold/yellow'))
+    print(fontstyle.apply("Instructions:\n", 'bold/underline'))
 
     print("\n. The goal is to guess the secret word correctly within "
           "4 or 6 attempts,\n  depending on the chosen difficulty level.\n")
@@ -123,11 +146,11 @@ def game_rules():
     print(". You win if you guess the secret word within the allotted "
           "number of attempts,\n  and lose if you fail to do so.\n")
     print(". Once the game is over, you can start a new round and guess "
-          "a different\n  secret word.\n")
+          "a different\n  secret word.\n\n")
 
     while True:
-        rule_page_button = input(colored("Press 'b' to go back to game menu and 'c' to start playing.\t", "blue"))
-        print('\n')
+        rule_page_button = input(colored("Press 'b' to go back to game menu an"
+                                         "d 'c' to start playing.\n", "blue"))
 
         if rule_page_button.lower() == "q":
             print("Goodbye!")
@@ -247,7 +270,7 @@ def game_play(word, level):
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-
+    print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
     print("Guess away creature\n\n")
     print(word + "\n")
 
@@ -268,9 +291,6 @@ def game_play(word, level):
                 if check_word_in_library(guess):
                     break
 
-        # sys.stdout.write('\x1b[1A')
-        # sys.stdout.write('\x1b[2K')
-
         guess_str = ""
 
         # print colored letters
@@ -290,6 +310,7 @@ def game_play(word, level):
 
         clear_terminal()
         print("Press 'q' to quit\n\n")
+        print(fontstyle.apply("Word Wander\n\n".rjust(50), 'bold/yellow'))
         print("Guess away creature!\n\n")
 
         for line in range(len(guess_list)):
