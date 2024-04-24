@@ -56,3 +56,31 @@ Word Wander is a simple and engaging word guessing game inspired by the famous W
    -  You win if you guess the secret word within the allotted number of attempts, and lose if you fail to do so.
 
    - Once the game is over, you can start a new round and guess a different secret word.
+
+
+# Existing Features
+
+##  Main menu / Welcome page:
+
+The game begins with a welcoming message to set the mood, creating an engaging atmosphere. It offers users two options: to start playing or to check the instructions.
+
+![Welcome page](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-title.png)
+
+## Input validator:
+
+Only accepts inputs that match the given options. If the input doesn't match, an error message gets displayed and ask of the user to try again.
+
+![Error message](https://github.com/Ahmadk-g/WordWander/blob/main/images/error-message1.png)
+
+## Game instructions:
+
+The game includes an option for users to view the game instructions.
+
+![Game instructions](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-instructions.png)
+
+## Step1 of starting game
+
+- The initial step of starting the game includes a text designed to immerse the user in the challenging mood of the game.
+- Engages the user by asking for their name while maintaining the mood.
+
+![Game question1](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q1.png)
