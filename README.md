@@ -90,7 +90,15 @@ The game includes an option for users to view the game instructions.
 
 - During the second step of starting the game, the user selects their preferred difficulty level.
 - This choice determines the number of attempts the user has to guess the word.
-- "Simple mortal" for 6 trials and "Infinite Intellect" for 4 tirals.
+- "Simple mortal" for 6 trials and "Infinite Intellect" for 4 trials.
 
 
 ![Game question2](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q2.png)
+
+## Game start
+
+- The game begins with the phrase "guess away creature."
+- Afterward, a series of dashed lines appear, the quantity determined by the chosen difficulty level. Beneath these lines, the player can enter their guesses.
+- Beneath these lines, the player can enter their guesses.
+
+
