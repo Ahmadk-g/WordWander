@@ -127,3 +127,33 @@ An error message is displayed when the input doesn't pass validation.
 ![word not in library error](https://github.com/Ahmadk-g/WordWander/blob/main/images/not_word_err.png)
 
 ![not just letters error](https://github.com/Ahmadk-g/WordWander/blob/main/images/not_letters_err.png)
+
+
+# Features to be implemented 
+
+- Connect googlesheet for the integration of a scoring system.
+- Implementing hints or clues for players.
+- Enhancing error handling and validation process
+
+
+# Technologies used
+
+
+The script was implemented using __Python__.
+
+
+- `VS Code`: Employed as the primary integrated development environment (IDE).
+- `Git`: Employed for version control.
+- `Github`: Utilized for file storage and hosting.
+- `Heroku`: Utilized for hosting the deployed backend site.
+
+__Modules imported for the script__
+
+- `random` : Generates random numbers or selects random items from a sequence.
+- `termcolor` : Provides functions for formatting text with ANSI color codes. 
+- `sys` : Provides access to some variables used or maintained by the Python interpreter and functions that interact with the interpreter.
+- `os` : Provides functions for interacting with the operating system, such as reading or writing files, manipulating paths, and executing system commands.
+- `pyfiglet` : Generates ASCII art text from a string.
+- `fontstyle` : Not a standard Python module; it may be a custom module for styling text.
+- `time` : Provides various time-related functions.
+
