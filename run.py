@@ -326,7 +326,7 @@ def game_play(word, level):
                 elif guess[j] in green_guess_str and guess.count(guess[j]) > count_letter(word, guess[j]):
                     guess_str += guess[j]  
 
-                elif guess[j] in word and (count_letter(word, guess[j]) <= guess.count(guess[j])):
+                elif guess[j] in word : # and (count_letter(word, guess[j]) <= guess.count(guess[j])):
 
                     guess_str += colored(guess[j], 'yellow')
 
