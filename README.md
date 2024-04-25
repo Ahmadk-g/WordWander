@@ -79,9 +79,18 @@ The game includes an option for users to view the game instructions.
 
 ![Game instructions](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-instructions.png)
 
-## Step1 of starting game
+## Step 1 of starting game
 
 - The initial step of starting the game includes a text designed to immerse the user in the challenging mood of the game.
 - Engages the user by asking for their name while maintaining the mood.
 
 ![Game question1](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q1.png)
+
+## Step 2 of starting game
+
+- During the second step of starting the game, the user selects their preferred difficulty level.
+- This choice determines the number of attempts the user has to guess the word.
+- "Simple mortal" for 6 trials and "Infinite Intellect" for 4 tirals.
+
+
+![Game question2](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q2.png)
