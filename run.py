@@ -23,7 +23,7 @@ def typingeffect(delay, string):
     To create typing effect in command line
     """
     for i in string:
-        time.sleep(0.03)
+        time.sleep(0.02)
         sys.stdout.write(i)
         sys.stdout.flush()
     if delay == 'yes':
@@ -250,6 +250,14 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def count_letter(word, letter):
+    count = 0
+    for char in word:
+        if char == letter:
+            count += 1
+    return count
+
+
 def game_play(word, level):
     """
     Function for game play:
@@ -292,21 +300,43 @@ def game_play(word, level):
                     break
 
         guess_str = ""
-
+        green_guess_str=""
+        green_letters = 0
         # print colored letters
         for j in range(min(len(guess), 5)):
             if guess[j] == word[j]:
 
-                guess_str += colored(guess[j], 'green')
+                green_guess_str += guess[j]
+                green_letters += 1
 
-            elif guess[j] in word and word.count(guess[j]) == guess.count(guess[j]):
+            else: 
+                green_guess_str += "-"
 
-                guess_str += colored(guess[j], 'yellow')
+
+        for j in range(min(len(guess), 5)):
+            if green_guess_str[j] == "-":
+
+                if guess[j] in word and (guess_str.count(colored(guess[j], 'yellow')) + guess_str.count(colored(green_guess_str[j], 'green'))) == count_letter(word, guess[j]):
+
+                    guess_str += guess[j]
+
+                elif guess[j] in green_guess_str and guess.count(guess[j]) <= count_letter(word, guess[j]):
+                    guess_str += colored(guess[j], 'yellow')
+
+                elif guess[j] in green_guess_str and guess.count(guess[j]) > count_letter(word, guess[j]):
+                    guess_str += guess[j]  
+
+                elif guess[j] in word and (count_letter(word, guess[j]) <= guess.count(guess[j])):
+
+                    guess_str += colored(guess[j], 'yellow')
+
+                else:
+                    guess_str += guess[j]
             else:
-
-                guess_str += guess[j]
+                guess_str += colored(green_guess_str[j], "green")
 
         guess_list[trial-1] = guess_str
+
 
         clear_terminal()
         print("Press 'q' to quit\n\n")
