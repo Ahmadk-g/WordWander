@@ -157,3 +157,41 @@ __Modules imported for the script__
 - `fontstyle` : Not a standard Python module; it may be a custom module for styling text.
 - `time` : Provides various time-related functions.
 
+
+# Testing
+
+
+
+# Deployment
+
+The live link can be found here - [Word Wander](https://word-wander-c212ee79ed5a.herokuapp.com/)
+
+This project was deployed using the Code Institute's mock terminal for Heroku.
+
+__Steps for deployment__:
+
+1. Create an account or log in to Heroku.
+2. On the dashboard, in the right corner click the button that says "New" and choose "Create New App".
+3. Pick a name of the app. The name has to be unique because it can't match any other name being used.
+4. Select your region, United States or Europe.
+5. Add payment method if needed.
+6. Click "Create App".
+7. On the menu at the top of the page, go to the Settings Tab.
+8. Scroll down to Config Vars and click "Reveal Config Vars".
+9. Add a new Config Var and enter PORT in the keybox and 8000 in the valuebox.
+10. Under Config Vars you will find Buildpacks.
+11. Click "Add Buildpacks".
+12. Select python.
+13. Repeat this step but select nodejs.
+14. Important to know: The python has to be picked before the nodejs, if it is not in order 6you can change the order by click and drag to correct the order.
+15. Scroll back to the top of the page, to the menu and go to the Deploy Tab.
+16. Select GitHub as the deployment method and confirm.
+17. Search for you repository name and connect that.
+18. Scroll down to the bottom of the page and there you can choose if you want the deploys to be Automatic or Manually. The Manually deployed branches needs redepolying each time the repository is updated.
+19. Click "View" to see the live site.
+
+# Credts
+
+
+
+
