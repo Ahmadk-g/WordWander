@@ -280,7 +280,7 @@ def game_play(word, level):
     print("Press 'q' to quit\n\n")
     print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
     print("Guess away creature\n\n")
-    print(word + "\n")
+    # print(word + "\n")
 
     for line in range(len(guess_list)):
         print(guess_list[line])
