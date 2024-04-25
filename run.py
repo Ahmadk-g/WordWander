@@ -11,6 +11,8 @@ def title_ascii():
     """
     ascii art for game title using pyfiglet module
     """
+    # From: https://stackoverflow.com/questions/64790990/how-to-center-printed-text-with-pyfiglet-in-python
+
     title_text_ascii = "Word Wander"
     word_wander_ascci_art = pyfiglet.figlet_format(
         title_text_ascii, font='small', justify='center'
@@ -20,8 +22,10 @@ def title_ascii():
 
 def typingeffect(delay, string):
     """
-    To create typing effect in command line
+    To create typing effect in command line.
     """
+    # From: https://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method
+
     for i in string:
         time.sleep(0.02)
         sys.stdout.write(i)
@@ -78,8 +82,10 @@ def enter_name():
     print("Press 'q' to quit\n\n")
     print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
 
+    #Implement 'typingeffect' function to print text for visual effect.
     typingeffect('no', "Welcome, brave soul. Many have tried, but none "
                  "have succeeded. Let's see if\nyou're the exception.\n\n")
+
     typingeffect('no', colored("By what name do you go, human?\n",
                                'light_blue'))
     player_name = input()
@@ -125,8 +131,7 @@ def game_rules():
     Rules of the game thag will appear when called for.
     """
     clear_terminal()
-    # print("Press 'q' to quit\n")
-    # print(fontstyle.apply("Word Wander\n".rjust(50), 'bold/yellow'))
+
     print(fontstyle.apply("Instructions:", 'bold/underline'))
 
     print("\n. The goal is to guess the secret word correctly within "
@@ -159,14 +164,15 @@ def game_rules():
         if validate_entry("rules", rule_page_button):
             break
 
-    if rule_page_button.lower() == "b":
+    if rule_page_button.lower() == "b": # Takes the user back to main menu
         main()
-    elif rule_page_button.lower() == "c":
+    elif rule_page_button.lower() == "c": # start game
         start_game_from_rules()
 
 
 def validate_entry(type, input):
     """
+    Error handling;
     Raises ValueError if string value does not match the given choices.
     """
 
@@ -247,10 +253,19 @@ def check_word_in_library(word):
 
 
 def clear_terminal():
+    """ Function for clearing terminal """
+    # from: https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python
+    
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def count_letter(word, letter):
+    """ 
+    For counting letters in a string.
+    for the reason that '.count' doesn't always work. (bug?)
+    """
+    # From: https://stackoverflow.com/questions/2932511/letter-count-on-a-string
+    
     count = 0
     for char in word:
         if char == letter:
@@ -302,6 +317,7 @@ def game_play(word, level):
         guess_str = ""
         green_guess_str=""
         green_letters = 0
+        
         # print colored letters
         for j in range(min(len(guess), 5)):
             if guess[j] == word[j]:
