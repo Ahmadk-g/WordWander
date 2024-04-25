@@ -73,8 +73,9 @@ Only accepts inputs that match the given options. If the input doesn't match, an
 ![Error message](https://github.com/Ahmadk-g/WordWander/blob/main/images/error-message1.png)
 
 ## Game instructions:
-
 The game includes an option for users to view the game instructions.
+- After the user inputs the number 2, they are directed to the game instructions.
+
 
 ![Game instructions](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-instructions.png)
 
