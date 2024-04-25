@@ -101,4 +101,29 @@ The game includes an option for users to view the game instructions.
 - Afterward, a series of dashed lines appear, the quantity determined by the chosen difficulty level. Beneath these lines, the player can enter their guesses.
 - Beneath these lines, the player can enter their guesses.
 
+![First guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/first_guess.png)
 
+## Guess till you win or lose
+
+- If the player correctly guesses the word within the allotted number of attempts, they receive a congratulatory message.
+
+![Win guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/win-guess.png)
+
+- If they fail to guess the word within the given attempts, they will discover what the word was.
+
+![lose guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/lose-guess.png)
+
+As illustrated, in either scenario, players are prompted to play another game or return to the main menu. Quitting is always an option.
+
+## Word guess validation
+
+An important feature is validating the words entered for the guess.
+
+- They must be acceptable 5-letter words that are found within the extensive word library file.
+- They must consist solely of alphabetic characters.
+
+An error message is displayed when the input doesn't pass validation.
+
+![word not in library error](https://github.com/Ahmadk-g/WordWander/blob/main/images/not_word_err.png)
+
+![not just letters error](https://github.com/Ahmadk-g/WordWander/blob/main/images/not_letters_err.png)
