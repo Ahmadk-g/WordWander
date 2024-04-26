@@ -306,7 +306,6 @@ def game_play(word, level):
     print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30),
                           'bold/yellow'))
     print("Guess away..\n\n")
-    print(word + "\n")
 
     for line in range(len(guess_list)):  # Print dashed lines.
         print(guess_list[line])
@@ -389,7 +388,7 @@ def game_play(word, level):
             break
         elif trial == i-1:
             print(colored(f"\nYou didn't guess the word within {i-1} "
-                          "tries, it was '%s'." % word, "grey",
+                          "tries, it was '%s'." % word, "white",
                           "on_light_red", ["bold"]))
             done = True
             break
