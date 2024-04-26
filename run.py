@@ -1,10 +1,10 @@
-import random
-from termcolor import colored
-import sys
-import os
-import pyfiglet
-import fontstyle
-import time
+import random  # Select random items from a sequence.
+from termcolor import colored  # Format text with ANSI color codes. 
+import sys  # Interact with the interpreter.
+import os  # Interact with the operating system.
+import pyfiglet  # Generate ASCII art text from a string.
+import fontstyle  # Module for styling text.
+import time  # Providesvarious time-related functions.
 
 
 def title_ascii():
@@ -332,6 +332,8 @@ def game_play(word, level):
 
         # print colored letters
 
+        # Base of function derived from:
+        # https://replit.com/@Thomas34/wordle#main.py
         for j in range(len(guess)):
             if guess[j] == word[j]:
 
@@ -344,7 +346,10 @@ def game_play(word, level):
         for j in range(len(guess)):
             if green_guess_str[j] == "-":
 
-                if guess[j] in word and (guess_str.count(colored(guess[j], 'yellow')) + guess_str.count(colored(green_guess_str[j], 'green'))) == count_letter(word, guess[j]):
+                if guess[j] in word and \
+                    (guess_str.count(colored(guess[j], 'yellow')) +
+                     guess_str.count(colored(green_guess_str[j], 'green'))) == \
+                        count_letter(word, guess[j]):
                     guess_str += guess[j]
 
                 elif guess[j] in green_guess_str:
