@@ -197,7 +197,7 @@ def validate_entry(type, input):
         elif type == "name":
             if input.isalpha() is False:
                 raise ValueError(
-                    "Name should consist of letters"
+                    "Name must consist only of letters."
                 )
         elif type == "difficulty":
             if input != "1" and input != "2":
@@ -272,7 +272,7 @@ def clear_terminal():
 def count_letter(word, letter):
     """
     For counting letters in a string.
-    For the reason that '.count' not always working. (bug?)
+    The count() method sometimes unreliable.
     """
     # From: https://stackoverflow.com/questions/2932511/letter-count-on-a-string
 

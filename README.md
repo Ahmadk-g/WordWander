@@ -36,6 +36,8 @@ Word Wander is a simple and engaging word guessing game inspired by the famous W
    - The user has the option to start a new round and guess a different secret word.
 5. Command for Quitting:
    At any time, the user can quit the game by entering 'q'.
+6. Clear Terminal:
+   The terminal is cleared every time a new function is called to simulate a new page appearance.
 
 
 # How to play
@@ -169,6 +171,35 @@ __Modules imported for the script__
 File | Screenshot | Notes |
 | --- | --- | --- |
 | run.py | ![PEP8 warnings](https://github.com/Ahmadk-g/WordWander/blob/main/images/pep8_errors.png) | Warnings on commented URL attributes |
+
+#### Lighthouse performance check
+
+Lighthouse in Chrome Developer Tools was used to check performance.
+
+__- Desktop performance results:__
+
+![lighthouse results](https://github.com/Ahmadk-g/WordWander/blob/main/images/lighthouse_results.png) 
+
+
+### Manual testing
+
+All the features mentioned below have been tested manually:
+
+- All functions in the script have been assessed for their functionality.
+- The Python script terminates whenever the user inputs 'q'.
+- <u>Error Handling</u>: If an input other than the available choices is entered, an error message prompts the user to enter a valid option.
+    - For main menu input choices, only '1' or '2' are accepted.
+    - For rule page input choices, only 'c' or 'b' are accepted.
+    - For player name input, only alphabetic characters are accepted.
+    - For difficulty level input, only '1' or '2' are accepted.
+    - All guesses in the game must be 5-letter words consisting only of alphabetic characters and must be valid words found in 'wordlibrary.txt'.
+- The terminal is cleared whenever necessary.
+
+### Bugs
+__Solved Bug__
+sometimes the count() method was did not work. In those cases i used this function:
+![count letters function](https://github.com/Ahmadk-g/WordWander/blob/main/images/count_func.png) 
+
 
 # Deployment
 
