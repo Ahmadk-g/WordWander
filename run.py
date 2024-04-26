@@ -1,5 +1,5 @@
 import random  # Select random items from a sequence.
-from termcolor import colored  # Format text with ANSI color codes. 
+from termcolor import colored  # Format text with ANSI color codes.
 import sys  # Interact with the interpreter.
 import os  # Interact with the operating system.
 import pyfiglet  # Generate ASCII art text from a string.
@@ -37,7 +37,6 @@ def typingeffect(delay, string):
 
 
 def game_intro():
-
     """
     Introducing the user to the game, get name, choice of difficulty level,
     and display rules if asked.
@@ -135,7 +134,7 @@ def difficulty_level(player_name):
 
 def game_rules():
     """
-    Rules of the game thag will appear when called for.
+    Rules of the game to be displayed when called for.
     """
     clear_terminal()
 
@@ -180,7 +179,7 @@ def game_rules():
 def validate_entry(type, input):
     """
     Error handling;
-    Raises ValueError if string value does not match the given choices.
+    Raises ValueError if input value does not match the given choices.
     """
 
     try:
@@ -273,7 +272,7 @@ def clear_terminal():
 def count_letter(word, letter):
     """
     For counting letters in a string.
-    for the reason that '.count' doesn't always work. (bug?)
+    For the reason that '.count' not always working. (bug?)
     """
     # From: https://stackoverflow.com/questions/2932511/letter-count-on-a-string
 
@@ -309,7 +308,7 @@ def game_play(word, level):
     print("Guess away creature\n\n")
     print(word + "\n")
 
-    for line in range(len(guess_list)):  # print dashed lines
+    for line in range(len(guess_list)):  # Print dashed lines.
         print(guess_list[line])
 
     for trial in range(1, i):
@@ -348,7 +347,7 @@ def game_play(word, level):
 
                 if guess[j] in word and \
                     (guess_str.count(colored(guess[j], 'yellow')) +
-                     guess_str.count(colored(green_guess_str[j], 'green'))) == \
+                     guess_str.count(colored(green_guess_str[j], 'green'))) ==\
                         count_letter(word, guess[j]):
                     guess_str += guess[j]
 
@@ -417,19 +416,33 @@ def game_play(word, level):
 
 
 def start_new_game(level):
+    """
+    For starting a new game directly.
+    - Choose a new random word.
+    - Start guessing.
+    """
     word = read_random_word()
     game_play(word, level)
 
 
 def main():
+    """
+    Calling the script for the whole game
+    1. Main menu
+    2. Display rules or start game
+    3. Ask for name and difficulty level
+    4. Start game
+    """
+
     data = game_intro()
-    name = data[0]
     level = data[1]
 
     start_new_game(level)
 
 
 def start_game_from_rules():
+    """ Specific for starting the game from Rules page """
+
     name = enter_name()
     level = difficulty_level(name)
 
