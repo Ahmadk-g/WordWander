@@ -160,7 +160,15 @@ __Modules imported for the script__
 
 # Testing
 
+### Validator testing
 
+#### PEP8 CI Python Linter
+
+[PEP8 CI Linter](https://pep8ci.herokuapp.com) was used to validate my __run.py__ file.
+
+File | Screenshot | Notes |
+| --- | --- | --- |
+| run.py | ![PEP8 warnings](https://github.com/Ahmadk-g/WordWander/blob/main/images/pep8_errors.png) | Warnings on commented URL attributes |
 
 # Deployment
 
