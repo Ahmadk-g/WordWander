@@ -107,11 +107,11 @@ The game includes an option for users to view the game instructions.
 
 - If the player correctly guesses the word within the allotted number of attempts, they receive a congratulatory message.
 
-![Win guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/win-guess.png)
+![Win guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/win_guess.png)
 
 - If they fail to guess the word within the given attempts, they will discover what the word was.
 
-![lose guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/lose-guess.png)
+![lose guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/lose_guess.png)
 
 As illustrated, in either scenario, players are prompted to play another game or return to the main menu. Quitting is always an option.
 
@@ -192,6 +192,18 @@ __Steps for deployment__:
 
 # Credts
 
+## Code
 
+- Some functions or code snippets in this project were adapted from solutions found on [Stack Overflow](https://stackoverflow.com/).
 
+- In addition, [geeksforgeeks](https://www.geeksforgeeks.org/) and [w3schools](https://www.w3schools.com/)
 
+- `game_play` function was derived from [here](https://replit.com/@Thomas34/wordle#main.py).
+
+## Content
+
+- The word library utilized in the game was sourced from [GitHub](https://github.com/charlesreid1/five-letter-words/blob/master/sgb-words.txt) 
+
+- [patorjk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) Patorjk was used to obtain an ASCII art demo for the game title.
+
+- All text was written by me.
