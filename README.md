@@ -7,12 +7,12 @@ Word Wander is a Python-based word guessing game inspired by the famous Wordle g
 The live link can be found here - [Word Wander](https://word-wander-c212ee79ed5a.herokuapp.com/)
 
 
-# Game flowchart:
+## Game flowchart:
 
 ![flowchart](https://github.com/Ahmadk-g/WordWander/blob/main/images/flowchart.png)
 
 
-# User Experience (UX)
+## User Experience (UX)
 
 Word Wander is a simple and engaging word guessing game inspired by the famous Wordle game. Below is an outline of the user experience:
 
@@ -40,7 +40,7 @@ Word Wander is a simple and engaging word guessing game inspired by the famous W
    The terminal is cleared every time a new function is called to simulate a new page appearance.
 
 
-# How to play
+## How to play
 
    - The goal is to guess the secret word correctly within 4 or 6 attempts,
    depending on the chosen difficulty level.
@@ -60,35 +60,38 @@ Word Wander is a simple and engaging word guessing game inspired by the famous W
    - Once the game is over, you can start a new round and guess a different secret word.
 
 
-# Existing Features
+## Existing Features
 
-##  Main menu / Welcome page:
+###  Main menu / Welcome page:
 
-The game begins with a welcoming message to set the mood, creating an engaging atmosphere. It offers users two options: to start playing or to check the instructions.
+The game begins with a welcoming message to set the mood, creating an engaging atmosphere. Users are presented with two choices: to initiate gameplay or to review the instructions.
 
 ![Welcome page](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-title.png)
 
-## Input validator:
+### Input validator / Error handling:
 
-Only accepts inputs that match the given options. If the input doesn't match, an error message gets displayed and ask of the user to try again.
+Inputs are only accepted if they correspond to the provided options. If the input does not match, an error message is displayed, prompting the user to try again.
 
 ![Error message](https://github.com/Ahmadk-g/WordWander/blob/main/images/error-message1.png)
 
-## Game instructions:
-The game includes an option for users to view the game instructions.
-- After the user inputs the number 2, they are directed to the game instructions.
+### Game instructions:
+
+The game features an option for users to access the game instructions.
+Upon entering the number 2, users are directed to the game instructions.
 
 
 ![Game instructions](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-instructions.png)
 
-## Step 1 of starting game
+### Step 1 of starting game
 
-- The initial step of starting the game includes a text designed to immerse the user in the challenging mood of the game.
-- Engages the user by asking for their name while maintaining the mood.
+The first stage of starting the game involves presenting a text crafted to immerse the user in the game's challenging ambiance.
+
+- Engages the user by asking for their name while upholding the mood.
 
 ![Game question1](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q1.png)
 
-## Step 2 of starting game
+
+### Step 2 of starting game
 
 - During the second step of starting the game, the user selects their preferred difficulty level.
 - This choice determines the number of attempts the user has to guess the word.
@@ -97,15 +100,16 @@ The game includes an option for users to view the game instructions.
 
 ![Game question2](https://github.com/Ahmadk-g/WordWander/blob/main/images/game-start-q2.png)
 
-## Game start
 
-- The game begins with the phrase "guess away creature."
-- Afterward, a series of dashed lines appear, the quantity determined by the chosen difficulty level. Beneath these lines, the player can enter their guesses.
+### Game start
+
+- The game begins with the phrase "guess away.."
+- Afterward, a series of dashed lines appear, the quantity is determined by the chosen difficulty level.
 - Beneath these lines, the player can enter their guesses.
 
 ![First guess](https://github.com/Ahmadk-g/WordWander/blob/main/images/first_guess.png)
 
-## Guess till you win or lose
+### Guess till you win or lose
 
 - If the player correctly guesses the word within the allotted number of attempts, they receive a congratulatory message.
 
@@ -117,7 +121,7 @@ The game includes an option for users to view the game instructions.
 
 As illustrated, in either scenario, players are prompted to play another game or return to the main menu. Quitting is always an option.
 
-## Word guess validation
+### Word guess validation
 
 An important feature is validating the words entered for the guess.
 
@@ -131,14 +135,14 @@ An error message is displayed when the input doesn't pass validation.
 ![not just letters error](https://github.com/Ahmadk-g/WordWander/blob/main/images/not_letters_err.png)
 
 
-# Features to be implemented 
+## Features to be implemented 
 
 - Connect googlesheet for the integration of a scoring system.
 - Implementing hints or clues for players.
 - Enhancing error handling and validation process
 
 
-# Technologies used
+## Technologies used
 
 
 The script was implemented using __Python__.
@@ -160,7 +164,7 @@ __Modules imported for the script__
 - `time` : Provides various time-related functions.
 
 
-# Testing
+## Testing
 
 ### Validator testing
 
@@ -196,12 +200,13 @@ All the features mentioned below have been tested manually:
 - The terminal is cleared whenever necessary.
 
 ### Bugs
+
 __Solved Bug__
 sometimes the count() method was did not work. In those cases i used this function:
 ![count letters function](https://github.com/Ahmadk-g/WordWander/blob/main/images/count_func.png) 
 
 
-# Deployment
+## Deployment
 
 The live link can be found here - [Word Wander](https://word-wander-c212ee79ed5a.herokuapp.com/)
 
@@ -229,9 +234,9 @@ __Steps for deployment__:
 18. Scroll down to the bottom of the page and there you can choose if you want the deploys to be Automatic or Manually. The Manually deployed branches needs redepolying each time the repository is updated.
 19. Click "View" to see the live site.
 
-# Credts
+## Credts
 
-## Code
+### Code
 
 - Some functions or code snippets in this project were adapted from solutions found on [Stack Overflow](https://stackoverflow.com/).
 
@@ -239,7 +244,7 @@ __Steps for deployment__:
 
 - `game_play` function was derived from [here](https://replit.com/@Thomas34/wordle#main.py).
 
-## Content
+### Content
 
 - The word library utilized in the game was sourced from [GitHub](https://github.com/charlesreid1/five-letter-words/blob/master/sgb-words.txt) 
 
