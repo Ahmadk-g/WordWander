@@ -80,19 +80,25 @@ def enter_name():
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
+    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30),
+                          'bold/yellow'))
 
-    #Implement 'typingeffect' function to print text for visual effect.
+    # Implement 'typingeffect' function to print text for visual effect.
     typingeffect('no', "Welcome, brave soul. Many have tried, but none "
                  "have succeeded. Let's see if\nyou're the exception.\n\n")
 
     typingeffect('no', colored("By what name do you go, human?\n",
                                'light_blue'))
-    player_name = input()
+    
+    while True:
+        player_name = input()
 
-    if player_name.lower() == 'q':
-        print("Goodbye!")
-        exit()
+        if player_name.lower() == 'q':
+            print("Goodbye!")
+            exit()
+        
+        if validate_entry("name", player_name):
+            break
 
     return player_name
 
@@ -103,7 +109,8 @@ def difficulty_level(player_name):
     """
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
+    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30),
+                          'bold/yellow'))
     print("Choose your difficulty level:\n\n")
     print("1. Simple Mortal - 6 trials")
     print("2. Infinite Intellect - 4 trials")
@@ -164,9 +171,9 @@ def game_rules():
         if validate_entry("rules", rule_page_button):
             break
 
-    if rule_page_button.lower() == "b": # Takes the user back to main menu
+    if rule_page_button.lower() == "b":  # Takes the user back to main menu
         main()
-    elif rule_page_button.lower() == "c": # start game
+    elif rule_page_button.lower() == "c":  # start game
         start_game_from_rules()
 
 
@@ -183,12 +190,16 @@ def validate_entry(type, input):
                 raise ValueError(
                     "Input value should be '1' or '2' ... or 'q' to quit"
                 )
-
         elif type == "rules":
             if input.lower() != "b" and input.lower() != "c":
                 raise ValueError(
                     "Input value should be 'b' or 'c'"
                 )
+        elif type == "name":
+            if input.isalpha() is False:
+                raise ValueError(
+                    "Name should consist of letters"
+            )
         elif type == "difficulty":
             if input != "1" and input != "2":
                 raise ValueError(
@@ -255,17 +266,17 @@ def check_word_in_library(word):
 def clear_terminal():
     """ Function for clearing terminal """
     # from: https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python
-    
+
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def count_letter(word, letter):
-    """ 
+    """
     For counting letters in a string.
     for the reason that '.count' doesn't always work. (bug?)
     """
     # From: https://stackoverflow.com/questions/2932511/letter-count-on-a-string
-    
+
     count = 0
     for char in word:
         if char == letter:
@@ -293,11 +304,12 @@ def game_play(word, level):
 
     clear_terminal()
     print("Press 'q' to quit\n\n")
-    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
+    print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30),
+                          'bold/yellow'))
     print("Guess away creature\n\n")
-    # print(word + "\n")
+    print(word + "\n")
 
-    for line in range(len(guess_list)):
+    for line in range(len(guess_list)):  # print dashed lines
         print(guess_list[line])
 
     for trial in range(1, i):
@@ -315,35 +327,35 @@ def game_play(word, level):
                     break
 
         guess_str = ""
-        green_guess_str=""
+        green_guess_str = ""
         green_letters = 0
-        
+
         # print colored letters
         for j in range(min(len(guess), 5)):
+
             if guess[j] == word[j]:
 
                 green_guess_str += guess[j]
                 green_letters += 1
 
-            else: 
+            else:
                 green_guess_str += "-"
-
 
         for j in range(min(len(guess), 5)):
             if green_guess_str[j] == "-":
 
                 if guess[j] in word and (guess_str.count(colored(guess[j], 'yellow')) + guess_str.count(colored(green_guess_str[j], 'green'))) == count_letter(word, guess[j]):
-
                     guess_str += guess[j]
 
-                elif guess[j] in green_guess_str and guess.count(guess[j]) <= count_letter(word, guess[j]):
-                    guess_str += colored(guess[j], 'yellow')
+                elif guess[j] in green_guess_str:
+                    
+                    if guess.count(guess[j]) <= count_letter(word, guess[j]):
+                        guess_str += colored(guess[j], 'yellow')
+                        
+                    elif guess.count(guess[j]) > count_letter(word, guess[j]):
+                        guess_str += guess[j]
 
-                elif guess[j] in green_guess_str and guess.count(guess[j]) > count_letter(word, guess[j]):
-                    guess_str += guess[j]  
-
-                elif guess[j] in word : # and (count_letter(word, guess[j]) <= guess.count(guess[j])):
-
+                elif guess[j] in word:
                     guess_str += colored(guess[j], 'yellow')
 
                 else:
@@ -353,18 +365,22 @@ def game_play(word, level):
 
         guess_list[trial-1] = guess_str
 
-
         clear_terminal()
         print("Press 'q' to quit\n\n")
-        print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30), 'bold/yellow'))
+        print(fontstyle.apply(" ".rjust(33) + "Word Wander\n\n".ljust(30),
+                              'bold/yellow'))
         print("Guess away creature!\n\n")
 
         for line in range(len(guess_list)):
             print(guess_list[line])
 
         if guess == word:
-            print(colored("\nCongratulations! You guessed the word in "
-                          "%i guesses!!" % trial, "green"))
+            if trial == 1:
+                print(colored("\nCongratulations! You guessed the word in "
+                              "%i guess!!" % trial, "green"))
+            else:
+                print(colored("\nCongratulations! You guessed the word in "
+                              "%i guesses!!" % trial, "green"))
             done = True
             break
         elif trial == i-1:
