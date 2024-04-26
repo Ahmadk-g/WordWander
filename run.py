@@ -89,14 +89,14 @@ def enter_name():
 
     typingeffect('no', colored("By what name do you go, human?\n",
                                'light_blue'))
-    
+
     while True:
         player_name = input()
 
         if player_name.lower() == 'q':
             print("Goodbye!")
             exit()
-        
+
         if validate_entry("name", player_name):
             break
 
@@ -199,7 +199,7 @@ def validate_entry(type, input):
             if input.isalpha() is False:
                 raise ValueError(
                     "Name should consist of letters"
-            )
+                )
         elif type == "difficulty":
             if input != "1" and input != "2":
                 raise ValueError(
@@ -331,8 +331,8 @@ def game_play(word, level):
         green_letters = 0
 
         # print colored letters
-        for j in range(min(len(guess), 5)):
 
+        for j in range(len(guess)):
             if guess[j] == word[j]:
 
                 green_guess_str += guess[j]
@@ -341,17 +341,17 @@ def game_play(word, level):
             else:
                 green_guess_str += "-"
 
-        for j in range(min(len(guess), 5)):
+        for j in range(len(guess)):
             if green_guess_str[j] == "-":
 
                 if guess[j] in word and (guess_str.count(colored(guess[j], 'yellow')) + guess_str.count(colored(green_guess_str[j], 'green'))) == count_letter(word, guess[j]):
                     guess_str += guess[j]
 
                 elif guess[j] in green_guess_str:
-                    
+
                     if guess.count(guess[j]) <= count_letter(word, guess[j]):
                         guess_str += colored(guess[j], 'yellow')
-                        
+
                     elif guess.count(guess[j]) > count_letter(word, guess[j]):
                         guess_str += guess[j]
 
