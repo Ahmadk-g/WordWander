@@ -9,7 +9,7 @@ The live link can be found here - [Word Wander](https://word-wander-c212ee79ed5a
 
 # Game flowchart:
 
-...
+![flowchart](https://github.com/Ahmadk-g/WordWander/blob/main/images/flowchart.png)
 
 
 # User Experience (UX)
